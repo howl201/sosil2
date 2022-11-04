@@ -1,5 +1,5 @@
 #include "initmenu.h"
-#include "comenu.h"
+#include "pmenu.h"
 #include <ncurses.h>
 #include <stdio.h>
 void initmenu1() {

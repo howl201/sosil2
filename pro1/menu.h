@@ -1,5 +1,5 @@
-#ifndef __MAINMENU_H__
-#define __MAINMENU_H__
+#ifndef __MENU_H__
+#define __MENU_H__
 int mainselect();
 void mainworker();
 void mainprint();

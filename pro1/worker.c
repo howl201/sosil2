@@ -1,5 +1,5 @@
 #include "worker.h"
-#include "comenu.h"
+#include "pmenu.h"
 #include <ncurses.h>
 #include <unistd.h>
 void pp1() {
@@ -24,9 +24,9 @@ void pp1() {
     wbkgd(p2, COLOR_PAIR(2));
     wbkgd(p3, COLOR_PAIR(2));
     wbkgd(dri, COLOR_PAIR(2));
-    wprintw(p1, "1co");
-    wprintw(p2, "2co");
-    wprintw(p3, "3co");
+    wprintw(p1, "1p");
+    wprintw(p2, "2p");
+    wprintw(p3, "3p");
     wprintw(dri, "driver");
     wrefresh(p1);
     wrefresh(p2);
@@ -55,9 +55,9 @@ void pp2() {
     wbkgd(p2, COLOR_PAIR(1));
     wbkgd(p3, COLOR_PAIR(2));
     wbkgd(dri, COLOR_PAIR(2));
-    wprintw(p1, "1co");
-    wprintw(p2, "2co");
-    wprintw(p3, "3co");
+    wprintw(p1, "1p");
+    wprintw(p2, "2p");
+    wprintw(p3, "3p");
     wprintw(dri, "driver");
     wrefresh(p1);
     wrefresh(p2);
@@ -86,9 +86,9 @@ void pp3() {
     wbkgd(p2, COLOR_PAIR(2));
     wbkgd(p3, COLOR_PAIR(1));
     wbkgd(dri, COLOR_PAIR(2));
-    wprintw(p1, "1co");
-    wprintw(p2, "2co");
-    wprintw(p3, "3co");
+    wprintw(p1, "1p");
+    wprintw(p2, "2p");
+    wprintw(p3, "3p");
     wprintw(dri, "driver");
     wrefresh(p1);
     wrefresh(p2);
@@ -117,9 +117,9 @@ void driver() {
     wbkgd(p2, COLOR_PAIR(2));
     wbkgd(p3, COLOR_PAIR(2));
     wbkgd(dri, COLOR_PAIR(1));
-    wprintw(p1, "1co");
-    wprintw(p2, "2co");
-    wprintw(p3, "3co");
+    wprintw(p1, "1p");
+    wprintw(p2, "2p");
+    wprintw(p3, "3p");
     wprintw(dri, "driver");
     wrefresh(p1);
     wrefresh(p2);
@@ -136,14 +136,16 @@ int workerselect() {
         if (ch == 10) {
             if (stat == 0) {
                 chdir("1p");
-                comenu();
+//                pselect();
                 chdir("..");
             } else if (stat == 1) {
                 chdir("2p");
-                comenu();
+//                pselect();
+                chdir("..");
             } else if (stat == 2) {
                 chdir("3p");
-                comenu();
+//                pselect();
+                chdir("..");
             }
         }
         if (stat == 0) {

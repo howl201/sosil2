@@ -1,17 +1,17 @@
-menu.out: menu.o initmenu.o mainmenu.o worker.o
-	gcc -o menu.out menu.o initmenu.o mainmenu.o worker.o -lncurses
+main.out: main.o initmenu.o menu.o worker.o
+	gcc -o main.out main.o initmenu.o menu.o worker.o -lncurses
 
-menu.o: initmenu.h mainmenu.h worker.h menu.c
-	gcc -c menu.c -lncurses
+main.o: initmenu.h menu.h worker.h main.c
+	gcc -c main.c -lncurses
 
 initmenu.o: initmenu.h initmenu.c
 	gcc -c initmenu.c -lncurses
 
-worker.o: worker.h comenu.h worker.c
-	gcc -c worker.c comenu.c -lncurses
+worker.o: worker.h pmenu.h worker.c
+	gcc -c worker.c pmenu.c -lncurses
 
-mainmenu.o: mainmenu.c mainmenu.h worker.h
-	gcc -c mainmenu.c
+menu.o: menu.h worker.h menu.c
+	gcc -c menu.c
 
 clean:
 	rm -f *.o
