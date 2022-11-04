@@ -4,5 +4,5 @@ void pp1();
 void pp2();
 void pp3();
 void driver();
-int workerselect();
+void workerselect();
 #endif

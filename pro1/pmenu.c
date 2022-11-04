@@ -82,7 +82,7 @@ void pexit()
     wrefresh(managep);
     wrefresh(exitp);
 }
-void pselect()
+void ppselect()
 {
     int stat=0;
     int ch;

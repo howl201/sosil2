@@ -126,7 +126,7 @@ void driver() {
     wrefresh(p3);
     wrefresh(dri);
 }
-int workerselect() {
+void workerselect() {
     int stat = 0;
     int ch;
     keypad(stdscr, TRUE);
@@ -136,16 +136,19 @@ int workerselect() {
         if (ch == 10) {
             if (stat == 0) {
                 chdir("1p");
-//                pselect();
+                ppselect();
                 chdir("..");
             } else if (stat == 1) {
                 chdir("2p");
-//                pselect();
+                ppselect();
                 chdir("..");
             } else if (stat == 2) {
                 chdir("3p");
-//                pselect();
+                ppselect();
                 chdir("..");
+            } else if (stat == 3) {
+                chdir("driver");
+
             }
         }
         if (stat == 0) {
