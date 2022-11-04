@@ -1,5 +1,7 @@
+#include "comenu.h"
 #include "initmenu.h"
 #include "mainmenu.h"
+#include "worker.h"
 #include <dirent.h>
 #include <ncurses.h>
 #include <stdio.h>
@@ -17,12 +19,8 @@ int main() {
         makedir(conum);
         clear();
     }
-    while (1) {
-        int mainstat = mainselect();
-        if (mainstat == 2)
-            break;
-    }
-//    getch();
+    mainselect();
+    //    getch();
 
     endwin();
 

@@ -1,4 +1,6 @@
 #include "mainmenu.h"
+#include "comenu.h"
+#include "worker.h"
 #include <ncurses.h>
 void mainworker() {
     if (has_colors() == FALSE) {
@@ -85,8 +87,12 @@ int mainselect() {
     noecho();
     while (1) {
         ch = getch();
-        if (ch == 10)
-            return stat;
+        if (ch == 10) {
+            if (stat == 0)
+                workerselect();
+            else if (stat == 2)
+                break;
+        }
         if (stat == 0) {
             if (ch == KEY_RIGHT) {
                 stat = 1;
