@@ -3,6 +3,6 @@
 void addmem();
 void chmem();
 void delmem();
-void exit();
+void driexit();
 void dirselect();
 #endif

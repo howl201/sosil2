@@ -1,4 +1,5 @@
 #include "worker.h"
+#include "driveracc.h"
 #include "pmenu.h"
 #include <ncurses.h>
 #include <unistd.h>
@@ -152,7 +153,8 @@ void workerselect() {
             } else if (stat == 3) {
                 clear();
                 chdir("driver");
-
+                dirselect();
+                chdir("..");
             }
         }
         if (stat == 0) {

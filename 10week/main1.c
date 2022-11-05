@@ -7,13 +7,13 @@ int main(int argc, char const *argv[])
 	int count = 5;
 	int *status;
 
-	printf("mainthread: %ld\n", pthread_self());
+	printf("mainthread: %ld\n", pthread_self());//print main thread number
 
-	if(pthread_create(&tid, NULL, myThread, (void *)&count)){
+	if(pthread_create(&tid, NULL, myThread, (void *)&count)){//create thread (mythread function) 
 		perror("pthread_create() error");
 		return -1;
 	}
-	pthread_join(tid, (void **)&status);
+	pthread_join(tid, (void **)&status);//wait exit thread(tid)
 	printf("thread %ld exit", tid);
 
 	return 0;
