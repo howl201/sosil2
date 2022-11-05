@@ -19,6 +19,17 @@ int main() {
         makedir(conum);
         clear();
     }
+    if(!chdir(".1co"))
+    {
+        if(!chdir(".2co"))
+        {
+            if(!chdir(".3co"))
+            {
+                printf("dir error\n");
+                return 0;
+            }
+        }
+    }
     mainselect();
     //    getch();
 

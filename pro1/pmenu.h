@@ -3,5 +3,5 @@
 void pinit();
 void pmanage();
 void pexit();
-void ppselect();
+void pmenuselect();
 #endif

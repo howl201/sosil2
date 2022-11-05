@@ -135,18 +135,22 @@ void workerselect() {
         ch = getch();
         if (ch == 10) {
             if (stat == 0) {
+                clear();
                 chdir("1p");
-                ppselect();
+                pmenuselect();
                 chdir("..");
             } else if (stat == 1) {
+                clear();
                 chdir("2p");
-                ppselect();
+                pmenuselect();
                 chdir("..");
             } else if (stat == 2) {
+                clear();
                 chdir("3p");
-                ppselect();
+                pmenuselect();
                 chdir("..");
             } else if (stat == 3) {
+                clear();
                 chdir("driver");
 
             }

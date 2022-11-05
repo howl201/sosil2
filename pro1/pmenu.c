@@ -82,7 +82,7 @@ void pexit()
     wrefresh(managep);
     wrefresh(exitp);
 }
-void ppselect()
+void pmenuselect()
 {
     int stat=0;
     int ch;
@@ -94,8 +94,9 @@ void ppselect()
         ch = getch();
         if(ch == 10)
         {
-            if(stat == 0)
+            if(stat == 2)
             {
+                clear();
                 break;
             }
         }
