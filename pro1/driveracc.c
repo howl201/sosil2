@@ -133,6 +133,7 @@ void dirselect() {
         ch = getch();
         if (ch == 10) {
             if (stat == 3) {
+                clear();
                 break;
             }
         }

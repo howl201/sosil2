@@ -1,4 +1,6 @@
-#include"pmenu.h"
+#include "pmenu.h"
+#include "driveracc.h"
+#include "initm.h"
 #include<ncurses.h>
 void pinit()
 {
@@ -98,6 +100,15 @@ void pmenuselect()
             {
                 clear();
                 break;
+            }
+            else if (stat == 1)
+            {
+                clear();
+                dirselect();
+            }
+            else if(stat == 0)
+            {
+                initial();
             }
         }
         else if(stat == 0)

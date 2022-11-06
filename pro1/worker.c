@@ -153,7 +153,7 @@ void workerselect() {
             } else if (stat == 3) {
                 clear();
                 chdir("driver");
-                dirselect();
+                pmenuselect();
                 chdir("..");
             }
         }

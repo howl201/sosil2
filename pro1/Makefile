@@ -1,5 +1,5 @@
-main.out: main.o initmenu.o menu.o worker.o pmenu.o driveracc.o
-	gcc -o main.out main.o initmenu.o menu.o pmenu.o worker.o driveracc.o -lncurses
+main.out: main.o initmenu.o menu.o worker.o pmenu.o driveracc.o initm.o
+	gcc -o main.out main.o initmenu.o menu.o pmenu.o worker.o driveracc.o initm.o -lncurses
 
 main.o: initmenu.h menu.h worker.h main.c
 	gcc -c main.c -lncurses
@@ -18,5 +18,8 @@ menu.o: menu.h worker.h menu.c
 
 driveracc.o: driveracc.h driveracc.c
 	gcc -c driveracc.c
+
+initm.o: initm.h initm.c
+	gcc -c initm.c
 clean:
 	rm -f *.o
