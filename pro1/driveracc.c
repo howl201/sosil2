@@ -1,6 +1,7 @@
 #include "driveracc.h"
 #include "addmember.h"
 #include "sgrade.h"
+#include "chmember.h"
 #include <ncurses.h>
 #include <unistd.h>
 void addmem() {
@@ -135,11 +136,12 @@ void dirselect() {
     while (1) {
         ch = getch();
         if (ch == 10) {
-            if (stat == 3) {
+            if (stat == 3)//exit 
+            {
                 clear();
                 break;
             }
-            else if(stat ==0)
+            else if(stat ==0)//add
             {
                 clear();
                 if(chdir("leader") == -1)//driver
@@ -166,6 +168,37 @@ void dirselect() {
                     {
                         chdir("crew");
                         addmember();
+                        chdir("..");
+                    }
+                }
+            }
+            else if(stat == 1) //chmember
+            {
+                clear();
+                if(chdir("leader") == -1)//driver
+                {
+                    changemem();
+                }
+                else//1p, 2p, 3p
+                {
+                    chdir("..");
+                    int stat = selectselect();
+                    if(stat == 0)
+                    {
+                        chdir("leader");
+                        changemem();
+                        chdir("..");
+                    }
+                    else if(stat == 1)
+                    {
+                        chdir("subleader");
+                        changemem();
+                        chdir("..");
+                    }
+                    else if(stat == 2)
+                    {
+                        chdir("crew");
+                        changemem();
                         chdir("..");
                     }
                 }

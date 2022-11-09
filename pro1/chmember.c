@@ -19,9 +19,28 @@ void changemem()
         char filename[2] = {"\0"};
         sprintf(filename, "%d", i);
         int fd2 = open(filename, O_RDONLY);
-        int fileent[10] = {"\0"};
+        char fileent[10] = {"\0"};
         read(fd2, fileent, 10);
-        printw("%s\n", fileent);
+        printw("%d: %s\n", i, fileent);
         close(fd2);
+    }
+    char cn[3] = {"\0"};
+    printw("change memvber number: ");
+    getstr(cn);
+    if(atoi(cn) >= num)
+    {
+        printw("error\n");
+        return;
+    }
+    else 
+    {
+        int fd3 = open(cn, O_WRONLY);
+        lseek(fd3, 0, SEEK_SET);
+        char name[10] = {"\0"};
+        printw("name: ");
+        getstr(name);
+        write(fd3, name, 10);
+        close(fd3);
+        clear();
     }
 }

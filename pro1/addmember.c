@@ -18,7 +18,7 @@ void addmember()
     char newmnum[10] = {"\0"};
     sprintf(newmnum, "%d", num+1);//add memberfile name
     lseek(fd1, 0, SEEK_SET);
-    write(fd1, newmnum, 10);
+    write(fd1, newmnum, strlen(newmnum));
     close(fd1);
     int fd2 = open(mnum, O_WRONLY | O_CREAT, 0755);
     printw("member name: ");   
