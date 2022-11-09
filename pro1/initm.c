@@ -9,18 +9,24 @@
 #include"initm.h"
 void rmfile()
 {
-    char* cwd;
-    cwd = getcwd(NULL, 30);
-    DIR *dirent;
- //   dirent = readdir(filename);
-    printw("currunt file is %s\n",cwd);
+    char num[3] = {"\0"};
+    int mnum = 0;
+    int fd1 = open("membernum", O_RDONLY);
+    read(fd1, num, 10);
+    mnum = atoi(num);
+    for(int i=0; i<mnum; i++)
+    {
+        char rmfile[10] = {"\0"};
+        sprintf(rmfile, "%d", i);
+        unlink(rmfile);
+    }
 
 }
 void initmdir()
 {
     echo();
     //remove all file
-//    rmfile();
+    rmfile();
     int fd1=0;
     char mnum[3] ={"\0"};
     printw("how many?: ");
