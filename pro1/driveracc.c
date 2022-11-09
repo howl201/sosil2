@@ -1,5 +1,8 @@
 #include "driveracc.h"
+#include "addmember.h"
+#include "sgrade.h"
 #include <ncurses.h>
+#include <unistd.h>
 void addmem() {
     if (has_colors() == FALSE) {
         puts("error");
@@ -135,6 +138,37 @@ void dirselect() {
             if (stat == 3) {
                 clear();
                 break;
+            }
+            else if(stat ==0)
+            {
+                clear();
+                if(chdir("leader") == -1)//driver
+                {
+                    addmember();
+                }
+                else//1p, 2p, 3p
+                {
+                    chdir("..");
+                    int stat = selectselect();
+                    if(stat == 0)
+                    {
+                        chdir("leader");
+                        addmember();
+                        chdir("..");
+                    }
+                    else if(stat == 1)
+                    {
+                        chdir("subleader");
+                        addmember();
+                        chdir("..");
+                    }
+                    else if(stat == 2)
+                    {
+                        chdir("crew");
+                        addmember();
+                        chdir("..");
+                    }
+                }
             }
         }
         if (stat == 0) {

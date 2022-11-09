@@ -12,7 +12,7 @@ void rmfile()
     char num[3] = {"\0"};
     int mnum = 0;
     int fd1 = open("membernum", O_RDONLY);
-    read(fd1, num, 10);
+    read(fd1, num, 3);
     mnum = atoi(num);
     for(int i=0; i<mnum; i++)
     {
@@ -20,6 +20,7 @@ void rmfile()
         sprintf(rmfile, "%d", i);
         unlink(rmfile);
     }
+    unlink("membernum");
 
 }
 void initmdir()
@@ -51,16 +52,20 @@ void initmdir()
 void initial()
 {
     if(chdir("leader") == -1){
+        printw("driver\n");
         initmdir();
     }
     else 
     {
+        printw("leader\n");
         initmdir();
         clear();
         chdir("../subleader");
+        printw("subleater\n");
         initmdir();
         clear();
         chdir("../crew");
+        printw("crew\n");
         initmdir();
         clear();
         chdir("..");
