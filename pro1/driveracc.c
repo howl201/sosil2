@@ -2,6 +2,7 @@
 #include "addmember.h"
 #include "sgrade.h"
 #include "chmember.h"
+#include "delmem.h"
 #include <ncurses.h>
 #include <unistd.h>
 void addmem() {
@@ -199,6 +200,37 @@ void dirselect() {
                     {
                         chdir("crew");
                         changemem();
+                        chdir("..");
+                    }
+                }
+            }
+            else if(stat == 2)
+            {
+                clear();
+                if(chdir("leader") == -1)//driver
+                {
+                    deletemem();
+                }
+                else//1p, 2p, 3p
+                {
+                    chdir("..");
+                    int stat = selectselect();
+                    if(stat == 0)
+                    {
+                        chdir("leader");
+                        deletemem();
+                        chdir("..");
+                    }
+                    else if(stat == 1)
+                    {
+                        chdir("subleader");
+                        deletemem();
+                        chdir("..");
+                    }
+                    else if(stat == 2)
+                    {
+                        chdir("crew");
+                        deletemem();
                         chdir("..");
                     }
                 }
