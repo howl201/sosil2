@@ -1,5 +1,6 @@
 #include "menu.h"
 #include "worker.h"
+#include "calculate.h"
 #include <ncurses.h>
 void mainworker() {
     if (has_colors() == FALSE) {
@@ -91,6 +92,11 @@ int mainselect() {
             {
                 clear();
                 workerselect();
+            }
+            if (stat == 1)
+            {
+                clear();
+                calculatemember();
             }
             else if (stat == 2)
                 break;

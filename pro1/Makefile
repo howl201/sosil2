@@ -1,5 +1,5 @@
-main.out: main.o initmenu.o menu.o worker.o pmenu.o driveracc.o initm.o addmember.o sgrade.o chmember.o delmem.o
-	gcc -o main.out main.o initmenu.o menu.o pmenu.o worker.o driveracc.o initm.o addmember.o sgrade.o chmember.o delmem.o -lncurses
+main.out: main.o initmenu.o menu.o worker.o pmenu.o driveracc.o initm.o addmember.o sgrade.o chmember.o delmem.o calculate.o
+	gcc -o main.out main.o initmenu.o menu.o pmenu.o worker.o driveracc.o initm.o addmember.o sgrade.o chmember.o delmem.o calculate.o -lncurses
 
 main.o: initmenu.h menu.h worker.h main.c
 	gcc -c main.c -lncurses
@@ -33,5 +33,8 @@ chmember.o: chmember.h chmember.c
 
 delmem.o: delmem.h delmem.c
 	gcc -c delmem.c -lncurses
+
+calculate.o: calculate.h calculate.c
+	gcc -c calculate.c -lncurses
 clean:
 	rm -f *.o
