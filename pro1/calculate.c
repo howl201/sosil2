@@ -18,6 +18,10 @@ void calculatemember()
     user_stime.tm_year = 2022 - 1900;
     user_stime.tm_mon = 7 - 1;
     user_stime.tm_mday = 1;
+    user_stime.tm_hour = 0;
+    user_stime.tm_min = 0;
+    user_stime.tm_sec = 0;
+    user_stime.tm_isdst = 0;
     start = mktime(&user_stime);
     while(1)
     {
@@ -39,9 +43,13 @@ void calculatemember()
         user_stime.tm_year = year - 1900;
         user_stime.tm_mon = month - 1;
         user_stime.tm_mday = day;
+        user_stime.tm_hour = 0;
+        user_stime.tm_min = 0;
+        user_stime.tm_sec = 0;
+        user_stime.tm_isdst = 0;
         current = mktime(&user_stime);
         diff = difftime(current, start);
         difday = diff/(60*60*24);
-        printw("%d", difday);
+        printw("%d\n", difday);
     }
 }
