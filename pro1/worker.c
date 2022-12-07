@@ -17,22 +17,27 @@ void pp1() {
     WINDOW *p2;
     WINDOW *p3;
     WINDOW *dri;
+    WINDOW *ppexit;
     p1 = newwin(1, 5, 20, 18);
     p2 = newwin(1, 5, 20, 25);
     p3 = newwin(1, 5, 24, 18);
     dri = newwin(1, 5, 24, 25);
+    ppexit = newwin(1, 5, 27, 18);
     wbkgd(p1, COLOR_PAIR(1));
     wbkgd(p2, COLOR_PAIR(2));
     wbkgd(p3, COLOR_PAIR(2));
     wbkgd(dri, COLOR_PAIR(2));
+    wbkgd(ppexit, COLOR_PAIR(2));
     wprintw(p1, "1p");
     wprintw(p2, "2p");
     wprintw(p3, "3p");
     wprintw(dri, "driver");
+    wprintw(ppexit, "exit");
     wrefresh(p1);
     wrefresh(p2);
     wrefresh(p3);
     wrefresh(dri);
+    wrefresh(ppexit);
 }
 void pp2() {
     if (has_colors() == FALSE) {
@@ -48,22 +53,27 @@ void pp2() {
     WINDOW *p2;
     WINDOW *p3;
     WINDOW *dri;
+    WINDOW *ppexit;
     p1 = newwin(1, 5, 20, 18);
     p2 = newwin(1, 5, 20, 25);
     p3 = newwin(1, 5, 24, 18);
     dri = newwin(1, 5, 24, 25);
+    ppexit = newwin(1, 5, 27, 18);
     wbkgd(p1, COLOR_PAIR(2));
     wbkgd(p2, COLOR_PAIR(1));
     wbkgd(p3, COLOR_PAIR(2));
     wbkgd(dri, COLOR_PAIR(2));
+    wbkgd(ppexit, COLOR_PAIR(2));
     wprintw(p1, "1p");
     wprintw(p2, "2p");
     wprintw(p3, "3p");
     wprintw(dri, "driver");
+    wprintw(ppexit, "exit");
     wrefresh(p1);
     wrefresh(p2);
     wrefresh(p3);
     wrefresh(dri);
+    wrefresh(ppexit);
 }
 void pp3() {
     if (has_colors() == FALSE) {
@@ -79,22 +89,27 @@ void pp3() {
     WINDOW *p2;
     WINDOW *p3;
     WINDOW *dri;
+    WINDOW *ppexit;
     p1 = newwin(1, 5, 20, 18);
     p2 = newwin(1, 5, 20, 25);
     p3 = newwin(1, 5, 24, 18);
     dri = newwin(1, 5, 24, 25);
+    ppexit = newwin(1, 5, 27, 18);
     wbkgd(p1, COLOR_PAIR(2));
     wbkgd(p2, COLOR_PAIR(2));
     wbkgd(p3, COLOR_PAIR(1));
     wbkgd(dri, COLOR_PAIR(2));
+    wbkgd(ppexit, COLOR_PAIR(2));
     wprintw(p1, "1p");
     wprintw(p2, "2p");
     wprintw(p3, "3p");
     wprintw(dri, "driver");
+    wprintw(ppexit, "exit");
     wrefresh(p1);
     wrefresh(p2);
     wrefresh(p3);
     wrefresh(dri);
+    wrefresh(ppexit);
 }
 void driver() {
     if (has_colors() == FALSE) {
@@ -110,22 +125,63 @@ void driver() {
     WINDOW *p2;
     WINDOW *p3;
     WINDOW *dri;
+    WINDOW *ppexit;
     p1 = newwin(1, 5, 20, 18);
     p2 = newwin(1, 5, 20, 25);
     p3 = newwin(1, 5, 24, 18);
     dri = newwin(1, 5, 24, 25);
+    ppexit = newwin(1, 5, 27, 18);
     wbkgd(p1, COLOR_PAIR(2));
     wbkgd(p2, COLOR_PAIR(2));
     wbkgd(p3, COLOR_PAIR(2));
     wbkgd(dri, COLOR_PAIR(1));
+    wbkgd(ppexit, COLOR_PAIR(2));
     wprintw(p1, "1p");
     wprintw(p2, "2p");
     wprintw(p3, "3p");
     wprintw(dri, "driver");
+    wprintw(ppexit, "exit");
     wrefresh(p1);
     wrefresh(p2);
     wrefresh(p3);
     wrefresh(dri);
+    wrefresh(ppexit);
+}
+void ppexit() {
+    if (has_colors() == FALSE) {
+        puts("error");
+        endwin();
+        return;
+    } else {
+        start_color();
+        init_pair(1, COLOR_BLUE, COLOR_WHITE);
+        init_pair(2, COLOR_WHITE, COLOR_BLUE);
+    }
+    WINDOW *p1;
+    WINDOW *p2;
+    WINDOW *p3;
+    WINDOW *dri;
+    WINDOW *ppexit;
+    p1 = newwin(1, 5, 20, 18);
+    p2 = newwin(1, 5, 20, 25);
+    p3 = newwin(1, 5, 24, 18);
+    dri = newwin(1, 5, 24, 25);
+    ppexit = newwin(1, 5, 27, 18);
+    wbkgd(p1, COLOR_PAIR(2));
+    wbkgd(p2, COLOR_PAIR(2));
+    wbkgd(p3, COLOR_PAIR(2));
+    wbkgd(dri, COLOR_PAIR(2));
+    wbkgd(ppexit, COLOR_PAIR(1));
+    wprintw(p1, "1p");
+    wprintw(p2, "2p");
+    wprintw(p3, "3p");
+    wprintw(dri, "driver");
+    wprintw(ppexit, "exit");
+    wrefresh(p1);
+    wrefresh(p2);
+    wrefresh(p3);
+    wrefresh(dri);
+    wrefresh(ppexit);
 }
 void workerselect() {
     int stat = 0;
@@ -155,6 +211,10 @@ void workerselect() {
                 chdir("driver");
                 pmenuselect();
                 chdir("..");
+            } else if(stat == 4)
+            {
+                clear();
+                break;
             }
         }
         if (stat == 0) {
@@ -181,6 +241,11 @@ void workerselect() {
                 driver();
                 stat = 3;
             }
+            else if(ch == KEY_DOWN)
+            {
+                ppexit();
+                stat = 4;
+            }
         } else if (stat == 3) {
             if (ch == KEY_LEFT) {
                 pp3();
@@ -189,6 +254,12 @@ void workerselect() {
                 pp2();
                 stat = 1;
             }
+        } else if(stat == 4) {
+            if(ch == KEY_UP) {
+                pp3();
+                stat = 2;
+            }
         }
+        
     }
 }
