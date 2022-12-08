@@ -197,11 +197,11 @@ void calculatemember()
         difday = diff/(60*60*24);
         printw("%d\n", difday);
         int rightday = 0;
-        if((difday%7) != 0)
-        {
-            printw("wrong day\n");
-        }
-        else{
+        // if((difday%7) != 0)
+        // {
+        //     printw("wrong day\n");
+        // }
+        if(1){
             if(difday/7%3 != 0)
             {
                 printw("different co\n");
